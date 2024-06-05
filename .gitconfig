@@ -1,0 +1,5 @@
+[user]
+	name = Simon Renblad
+	email = srenblad@m-labs.hk
+[core]
+	editor = nvim
