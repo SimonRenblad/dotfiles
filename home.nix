@@ -39,7 +39,7 @@
     yazi
     starship
     tree
-    nixfmt
+    nixfmt-rfc-style
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -55,8 +55,40 @@
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
+
     bash = {
       enable = true;
+    };
+
+    git = {
+      enable = true;
+      userName = "Simon Renblad";
+      userEmail = "srenblad@m-labs.hk";
+    };
+
+    starship = {
+      enable = true;
+      settings = {
+        add_newline = false;
+        format = "$time\\[$username@$hostname\\]$git_branch$nix_shell$directory\n$character";
+        time = {
+          format = "\\[[$time]($style)\\]";
+        };
+        username = {
+          format = "[$user]($style)";
+          show_always = true;
+        };
+        hostname = {
+          ssh_only = false;
+          format = "[$hostname]($style)";
+        };
+        git_branch = {
+          format = "\\([$branch]($style)\\)";
+        };
+        nix_shell = {
+          format = "\\([$name]($style)\\)";
+        };
+      }; 
     };
   };
 }
