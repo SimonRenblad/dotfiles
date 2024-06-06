@@ -1,5 +1,0 @@
-new_tab artiq-dev
-cd ~/artiq
-launch bash 
-launch nix develop
-launch nvim /home/srenblad/todo.md
