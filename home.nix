@@ -10,6 +10,8 @@
   home.homeDirectory = "/home/srenblad";
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
+    digital
+    entr
     kitty
     cmatrix
     gcc
@@ -91,6 +93,10 @@
         shiftwidth = 2;
       };
       plugins = {
+        # TODO: add oil
+        bufferline = {
+          enable = true;
+        };
         lualine = {
           enable = true;
         };
