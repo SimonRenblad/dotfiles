@@ -11,6 +11,7 @@
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     digital
+    ffmpeg
     entr
     kitty
     cmatrix
@@ -41,7 +42,10 @@
     tree
     nixfmt-rfc-style
     texlab
-  ];
+    python311Packages.matplotlib
+    python311Packages.pyqt5
+    python311Packages.flake8
+    ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -53,11 +57,11 @@
     EDITOR = "nvim";
     TERMINAL = "kitty";
     SHELL = "bash";
+    QT_PLUGIN_PATH = "${pkgs.qt5.qtbase}/${pkgs.qt5.qtbase.dev.qtPluginPrefix}:${pkgs.qt5.qtsvg.bin}/${pkgs.qt5.qtbase.dev.qtPluginPrefix}";
   };
 
   # Let Home Manager install and manage itself.
   programs = {
-    home-manager.enable = true;
 
     bash = {
       enable = true;
@@ -178,7 +182,9 @@
             texlab.enable = true;
             zls.enable = true;
             nil-ls.enable = true;
-            pyright.enable = true;
+            pyright = {
+              enable = true;
+            };
             rust-analyzer = {
               enable = true;
               installRustc = true;
