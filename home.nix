@@ -11,6 +11,7 @@
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     digital
+    calibre
     ffmpeg
     entr
     kitty
@@ -182,8 +183,13 @@
             texlab.enable = true;
             zls.enable = true;
             nil-ls.enable = true;
-            pyright = {
+            pylsp = {
               enable = true;
+              settings = {
+                plugins = {
+                  flake8.enabled = true;
+                };
+              };
             };
             rust-analyzer = {
               enable = true;
