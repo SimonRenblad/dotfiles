@@ -13,7 +13,9 @@
     digital
     calibre
     ffmpeg
-    entr
+    nixfmt-rfc-style
+    nil
+    ruff
     kitty
     cmatrix
     gcc
@@ -21,6 +23,7 @@
     cargo
     rustc
     rust-analyzer
+    rustfmt
     bc
     parallel
     lua
@@ -39,14 +42,29 @@
     gcc-arm-embedded
     ncurses
     yazi
-    starship
     tree
     nixfmt-rfc-style
     texlab
-    python311Packages.matplotlib
-    python311Packages.pyqt5
-    python311Packages.flake8
-    ];
+    (python3.withPackages (p: [
+      p.matplotlib
+      p.pyqt5
+      p.flake8
+      p.python-lsp-server
+      p.python-lsp-ruff
+      p.pylint
+    ]))
+    sox
+    serpl
+    gforth
+    up
+    crawley
+    slides
+    libqalculate
+    grex
+    bcal
+    helix
+    xsel
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -55,9 +73,9 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "hx";
     TERMINAL = "kitty";
-    SHELL = "bash";
+    SHELL = "fish";
     QT_PLUGIN_PATH = "${pkgs.qt5.qtbase}/${pkgs.qt5.qtbase.dev.qtPluginPrefix}:${pkgs.qt5.qtsvg.bin}/${pkgs.qt5.qtbase.dev.qtPluginPrefix}";
   };
 
@@ -68,6 +86,63 @@
       enable = true;
     };
 
+    helix = {
+      enable = true;
+      settings = {
+        theme = "autumn_night_transparent";
+        editor.cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
+        editor.lsp.display-messages = true;
+        editor.lsp.display-inlay-hints = true;
+      };
+      languages.language = [
+        {
+          name = "nix";
+          formatter.command = "nixfmt";
+        }
+        {
+          name = "c";
+          formatter.command = "clang-format";
+        }
+        {
+          name = "python";
+          formatter = {
+            command = "ruff";
+            args = [
+              "format"
+              "-"
+            ];
+          };
+          language-servers = [ "pylsp" ];
+        }
+        {
+          name = "rust";
+          formatter = {
+            command = "rustfmt";
+          };
+        }
+      ];
+      languages.language-server.pylsp.config.pylsp.plugins = {
+        ruff = {
+          enabled = true;
+          ignore = [ "F401" ];
+          lineLength = 120;
+        };
+        pylint.enabled = true;
+        flake8.enabled = true;
+      };
+
+      themes = {
+        autumn_night_transparent = {
+          "inherits" = "autumn_night";
+          "ui.background" = { };
+        };
+      };
+    };
+
     nixvim = {
       enable = true;
       colorschemes.onedark.enable = true;
@@ -75,6 +150,20 @@
         mapleader = " ";
         localmapleader = " ";
       };
+      keymaps = [
+        {
+          mode = "n";
+          key = "<leader>sp";
+          options.silent = true;
+          action = "<cmd>LspStop<CR>";
+        }
+        {
+          mode = "n";
+          key = "<leader>sr";
+          options.silent = true;
+          action = "<cmd>LspStart<CR>";
+        }
+      ];
       opts = {
         hlsearch = false;
         scrolloff = 10;
@@ -165,7 +254,6 @@
             diagnostic = {
               "<leader>k" = "goto_prev";
               "<leader>j" = "goto_next";
-              "<leader>e" = "open_float";
               "<leader>q" = "setloclist";
             };
             lspBuf = {
@@ -183,6 +271,7 @@
             texlab.enable = true;
             zls.enable = true;
             nil-ls.enable = true;
+            ruff-lsp.enable = true;
             pylsp = {
               enable = true;
               settings = {
@@ -199,21 +288,54 @@
           };
         };
       };
+      extraConfigLua = ''
+        -- Shortcut to disable lsp for a buffer
+        -- function M.LspSwap()
+        --   if vim.b.lsp_enabled == false then
+        --       M.LspShow()
+        --   else
+        --       M.LspHide()
+        --   end
+        -- end
+
+        -- vim.api.nvim_buf_set_keymap(0, 'n', 'yop',
+        --                                 '<cmd>lua require("lsp-local").LspSwap()<CR>',
+        --                                 {noremap = true})
+      '';
     };
 
     kitty = {
       enable = true;
       shellIntegration.enableBashIntegration = true;
       settings = {
-        enabled_layouts = "grid";
         tab_bar_style = "powerline";
         tab_powerline_style = "angled";
-        foreground = "#ffffff";
-        background = "#121212";
         background_opacity = "0.7";
         background_blur = 1;
         startup_session = "artiq";
-        shell = "bash";
+        shell = "fish";
+        foreground = "#979eab";
+        background = "#282c34";
+        color0 = "#282c34";
+        color1 = "#e06c75";
+        color2 = "#98c379";
+        color3 = "#e5c07b";
+        color4 = "#61afef";
+        color5 = "#be5046";
+        color6 = "#56b6c2";
+        color7 = "#979eab";
+        color8 = "#393e48";
+        color9 = "#d19a66";
+        color10 = "#56b6c2";
+        color11 = "#e5c07b";
+        color12 = "#61afef";
+        color13 = "#be5046";
+        color14 = "#56b6c2";
+        color15 = "#abb2bf";
+        active_tab_foreground = "#282c34";
+        active_tab_background = "#979eab";
+        inactive_tab_foreground = "#abb2bf";
+        inactive_tab_background = "#282c34";
       };
     };
 
@@ -221,31 +343,6 @@
       enable = true;
       userName = "Simon Renblad";
       userEmail = "srenblad@m-labs.hk";
-    };
-
-    starship = {
-      enable = true;
-      settings = {
-        add_newline = false;
-        format = "$time\\[$username@$hostname\\]$git_branch$nix_shell$directory\n$character";
-        time = {
-          format = "\\[[$time]($style)\\]";
-        };
-        username = {
-          format = "[$user]($style)";
-          show_always = true;
-        };
-        hostname = {
-          ssh_only = false;
-          format = "[$hostname]($style)";
-        };
-        git_branch = {
-          format = "\\([$branch]($style)\\)";
-        };
-        nix_shell = {
-          format = "\\([$name]($style)\\)";
-        };
-      };
     };
   };
 }
