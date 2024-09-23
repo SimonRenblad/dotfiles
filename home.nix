@@ -134,7 +134,9 @@
         pylint.enabled = true;
         flake8.enabled = true;
       };
-
+      languages.language-server.rust-analyzer.config = {
+        cargo.features = "all";
+      };
       themes = {
         autumn_night_transparent = {
           "inherits" = "autumn_night";
