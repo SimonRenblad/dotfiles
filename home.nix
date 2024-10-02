@@ -64,6 +64,7 @@
     bcal
     helix
     xsel
+    leetcode-cli
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -82,8 +83,13 @@
   # Let Home Manager install and manage itself.
   programs = {
 
-    bash = {
+    fish = {
       enable = true;
+
+      interactiveShellInit = ''
+        set fish_greeting
+        set EDITOR hx
+      '';
     };
 
     helix = {
