@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  punctuate,
+  ...
+}:
 {
   home.username = "srenblad";
   home.homeDirectory = "/home/srenblad";
@@ -9,7 +14,6 @@
     bottom
     calibre
     cargo
-    clang-tools_14
     cmake
     cmatrix
     cutter
@@ -20,17 +24,23 @@
     fzf
     gcc
     gforth
+    graphviz
+    hecate
     helix
     kitty
     lazygit
     leetcode-cli
     libqalculate
+    llvmPackages_14.clang-unwrapped
     lua
     ncurses
     nil
     nixfmt-rfc-style
     nixfmt-rfc-style
     parallel
+    punctuate.packages.x86_64-linux.default
+    qemu
+    qownnotes
     ruff
     rust-analyzer
     rustc
@@ -40,8 +50,10 @@
     tmux
     tree
     tt
+    ttyper
     verilog
     w3m
+    wl-clipboard
     yazi
     zig
     zls
@@ -79,11 +91,17 @@
 
     fish = {
       enable = true;
-
       interactiveShellInit = ''
         set fish_greeting
         set EDITOR hx
+        fzf --fish | source
       '';
+      plugins = [
+        {
+          name = "z";
+          src = pkgs.fishPlugins.z.src;
+        }
+      ];
     };
 
     helix = {
@@ -128,6 +146,10 @@
             command = "rustfmt";
           };
         }
+        {
+          name = "gas";
+          auto-format = false;
+        }
       ];
       languages.language-server.pylsp.config.pylsp.plugins = {
         ruff = {
@@ -144,7 +166,7 @@
       themes = {
         autumn_night_transparent = {
           "inherits" = "autumn_night";
-          "ui.background" = { };
+          "type" = "gold";
         };
       };
     };
