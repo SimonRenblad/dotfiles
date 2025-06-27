@@ -2,6 +2,7 @@
   config,
   pkgs,
   punctuate,
+  ttyper,
   ...
 }:
 {
@@ -17,8 +18,11 @@
     cmake
     cmatrix
     cutter
+    difftastic
     digital
+    dmenu
     dos2unix
+    expect
     fastfetch
     ffmpeg
     fzf
@@ -38,25 +42,6 @@
     nixfmt-rfc-style
     nixfmt-rfc-style
     parallel
-    punctuate.packages.x86_64-linux.default
-    qemu
-    qownnotes
-    ruff
-    rust-analyzer
-    rustc
-    rustfmt
-    slides
-    texlab
-    tmux
-    tree
-    tt
-    ttyper
-    verilog
-    w3m
-    wl-clipboard
-    yazi
-    zig
-    zls
     (python3.withPackages (p: [
       p.flake8
       p.matplotlib
@@ -64,7 +49,32 @@
       p.pyqt5
       p.python-lsp-ruff
       p.python-lsp-server
+      p.qtile
     ]))
+    punctuate.packages.x86_64-linux.default
+    qemu
+    qownnotes
+    river
+    ruff
+    rust-analyzer
+    rustc
+    rustfmt
+    slides
+    sway
+    tclPackages.tk
+    texlab
+    tmux
+    tree
+    tt
+    verilog
+    w3m
+    wl-clipboard
+    wmenu
+    yazi
+    zig
+    zls
+  ] ++ [
+   ttyper.packages.x86_64-linux.default 
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -12,9 +12,13 @@
       url = "github:SimonRenblad/punctuate";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ttyper = {
+      url = "github:SimonRenblad/ttyper";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, punctuate, ... }:
+  outputs = { nixpkgs, home-manager, punctuate, ttyper, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -22,7 +26,7 @@
       homeConfigurations."srenblad" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
-        extraSpecialArgs = { inherit punctuate; };
+        extraSpecialArgs = { inherit punctuate; inherit ttyper; };
       };
     };
 }
