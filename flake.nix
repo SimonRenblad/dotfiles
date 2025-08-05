@@ -43,8 +43,15 @@
     {
       homeConfigurations."srenblad" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
-        extraSpecialArgs = { inherit inputs; username = "srenblad"; };
+        modules = [
+          ./srenblad.nix
+          ./packages.nix
+          ./services.nix
+          ./programs.nix
+        ];
+        extraSpecialArgs = {
+          inherit inputs;
+        };
       };
     };
 }
