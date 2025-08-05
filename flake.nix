@@ -39,13 +39,12 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      ftdv = pkgs.callPackage ./ftdv.nix { inherit pkgs; inherit naersk; };
     in
     {
       homeConfigurations."srenblad" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
-        extraSpecialArgs = { inherit inputs; inherit ftdv; };
+        extraSpecialArgs = { inherit inputs; username = "srenblad"; };
       };
     };
 }
