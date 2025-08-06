@@ -4,6 +4,8 @@
     with pkgs;
     [
       alacritty
+      anki
+      anki-sync-server
       bc
       bottom
       calibre
