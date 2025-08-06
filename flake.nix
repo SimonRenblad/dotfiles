@@ -24,16 +24,16 @@
       url = "github:nix-community/naersk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wik = {
+      url = "github:SimonRenblad/wik";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      punctuate,
-      ttyper,
-      morgan_pkgs,
-      naersk,
       ...
     }@inputs:
     let

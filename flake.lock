@@ -113,11 +113,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753675338,
-        "narHash": "sha256-KDS9sr7dddH97lUXa7oxfRqphBlCA6JxZO4m/Z4W06I=",
+        "lastModified": 1754365350,
+        "narHash": "sha256-NLWIkn1qM0wxtZu/2NXRaujWJ4Y1PSZlc7h0y6pOzOQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e4b032ba5113664f0b8b23d956e59ce8e0bc349d",
+        "rev": "c5d7e957397ecb7d48b99c928611c6e780db1b56",
         "type": "github"
       },
       "original": {
@@ -208,11 +208,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1753429684,
-        "narHash": "sha256-9h7+4/53cSfQ/uA3pSvCaBepmZaz/dLlLVJnbQ+SJjk=",
+        "lastModified": 1754214453,
+        "narHash": "sha256-Q/I2xJn/j1wpkGhWkQnm20nShYnG7TI99foDBpXm1SY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
+        "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
         "type": "github"
       },
       "original": {
@@ -249,7 +249,8 @@
         "naersk": "naersk_2",
         "nixpkgs": "nixpkgs_2",
         "punctuate": "punctuate",
-        "ttyper": "ttyper"
+        "ttyper": "ttyper",
+        "wik": "wik"
       }
     },
     "rust-analyzer-src": {
@@ -345,6 +346,26 @@
       "original": {
         "owner": "SimonRenblad",
         "repo": "ttyper",
+        "type": "github"
+      }
+    },
+    "wik": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1754383577,
+        "narHash": "sha256-Oetao1i5hYzOd6iOpMySKYpPwa0nYx6ZXeFGGHfglKc=",
+        "owner": "SimonRenblad",
+        "repo": "wik",
+        "rev": "3094664e363e4be6af29016ff822f155962b7b71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SimonRenblad",
+        "repo": "wik",
         "type": "github"
       }
     }
