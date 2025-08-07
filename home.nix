@@ -1,12 +1,12 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 {
   imports = [
     ./programs
     ./services
+    ./packages.nix
   ];
   home.username = "srenblad";
   home.homeDirectory = "/home/srenblad";

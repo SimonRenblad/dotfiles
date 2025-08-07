@@ -44,10 +44,8 @@
       homeConfigurations."srenblad" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./srenblad.nix
+          ./home.nix
           ./packages.nix
-          ./services.nix
-          ./programs.nix
         ];
         extraSpecialArgs = {
           inherit inputs;
