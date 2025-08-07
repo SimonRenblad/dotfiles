@@ -4,6 +4,10 @@
   ...
 }:
 {
+  imports = [
+    ./programs
+    ./services
+  ];
   home.username = "srenblad";
   home.homeDirectory = "/home/srenblad";
   home.stateVersion = "24.05";
