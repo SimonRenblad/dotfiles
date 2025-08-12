@@ -29,6 +29,7 @@
       helix
       kitty
       lazygit
+      ledger
       leetcode-cli
       libqalculate
       llvmPackages_14.clang-unwrapped
