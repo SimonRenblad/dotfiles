@@ -10,6 +10,22 @@
       };
       editor.lsp.display-messages = true;
       editor.lsp.display-inlay-hints = true;
+      keys.normal = {
+        "j" = "move_char_left";
+        "k" = "move_visual_line_down";
+        "l" = "move_visual_line_up";
+        ";" = "move_char_right";
+        "'" = "collapse_selection";
+        "A-'" = "flip_selections";
+      };
+      keys.select = {
+        "j" = "extend_char_left";
+        "k" = "extend_line_down";
+        "l" = "extend_line_up";
+        ";" = "extend_char_right";
+        "'" = "collapse_selection";
+        "A-'" = "flip_selections";
+      };
     };
     languages = {
       language = [
