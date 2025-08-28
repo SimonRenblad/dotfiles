@@ -10,6 +10,7 @@
       };
       editor.lsp.display-messages = true;
       editor.lsp.display-inlay-hints = true;
+      editor.line-number = "relative";
       keys.normal = {
         "j" = "move_char_left";
         "k" = "move_visual_line_down";
@@ -61,6 +62,11 @@
         {
           name = "gas";
           auto-format = false;
+        }
+        {
+          name = "elixir";
+          auto-format = false;
+          # formatter = { command = "mix format"; };
         }
       ];
       language-server = {

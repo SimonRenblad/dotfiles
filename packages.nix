@@ -17,6 +17,9 @@
       digital
       dmenu
       dos2unix
+      elixir
+      elixir-ls
+      erlang
       expect
       fastfetch
       ffmpeg
