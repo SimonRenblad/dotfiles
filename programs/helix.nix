@@ -66,7 +66,7 @@
         {
           name = "elixir";
           auto-format = false;
-          # formatter = { command = "mix format"; };
+          formatter = { command = "mix"; args = [ "format" ]; };
         }
       ];
       language-server = {
