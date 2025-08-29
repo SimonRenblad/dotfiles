@@ -6,5 +6,6 @@
     helix = import ./programs/helix.nix {};
     alacritty = import ./programs/alacritty.nix {};
     git = import ./programs/git.nix {};
+    lazygit = import ./programs/lazygit.nix {};
   };
 }
