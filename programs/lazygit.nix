@@ -1,5 +1,6 @@
 {
   programs.lazygit = {
+    enable = true;
     settings = {
       keybinding.universal = {
         prevItem-alt = "l";
