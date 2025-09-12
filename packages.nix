@@ -27,6 +27,7 @@
       gcc
       gforth
       glance
+      ghidra
       graphviz
       hecate
       helix

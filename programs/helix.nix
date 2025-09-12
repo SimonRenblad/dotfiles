@@ -11,6 +11,7 @@
       editor.lsp.display-messages = true;
       editor.lsp.display-inlay-hints = true;
       editor.line-number = "relative";
+      editor.auto-pairs = false;
       keys.normal = {
         "j" = "move_char_left";
         "k" = "move_visual_line_down";
