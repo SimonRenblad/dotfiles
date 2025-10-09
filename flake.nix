@@ -28,6 +28,10 @@
       url = "github:SimonRenblad/wik";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    menth = {
+      url = "github:SimonRenblad/pymenth";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

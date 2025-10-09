@@ -126,6 +126,26 @@
         "type": "github"
       }
     },
+    "menth": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1758172160,
+        "narHash": "sha256-6kXyKp3VcHIDgStO2sA2OFy11F4AkyE+MhAK3zikWTA=",
+        "owner": "SimonRenblad",
+        "repo": "pymenth",
+        "rev": "d2101c7ff9c747a017a032beb1e8ff308e0285bc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SimonRenblad",
+        "repo": "pymenth",
+        "type": "github"
+      }
+    },
     "morgan_pkgs": {
       "inputs": {
         "git-hooks": "git-hooks",
@@ -245,6 +265,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "menth": "menth",
         "morgan_pkgs": "morgan_pkgs",
         "naersk": "naersk_2",
         "nixpkgs": "nixpkgs_2",

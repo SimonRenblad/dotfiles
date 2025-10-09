@@ -83,5 +83,6 @@
       inputs.ttyper.packages.x86_64-linux.default
       inputs.punctuate.packages.x86_64-linux.default
       inputs.wik.packages.x86_64-linux.default
+      inputs.menth.packages.x86_64-linux.default
     ];
 }
