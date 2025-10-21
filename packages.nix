@@ -37,12 +37,14 @@
       leetcode-cli
       libqalculate
       llvmPackages_14.clang-unwrapped
+      lsof
       lua
       mtr
       ncurses
       nil
       nixfmt-rfc-style
       nixd
+      nmap
       parallel
       (python3.withPackages (p: [
         p.flake8
