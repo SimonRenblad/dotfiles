@@ -69,6 +69,10 @@
           auto-format = false;
           formatter = { command = "mix"; args = [ "format" ]; };
         }
+        {
+          name = "llvm";
+          auto-format = false;
+        }
       ];
       language-server = {
         pylsp.config.pylsp.plugins = {

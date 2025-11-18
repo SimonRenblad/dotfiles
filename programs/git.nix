@@ -1,7 +1,9 @@
 {
   programs.git = {
     enable = true;
-    userName = "Simon Renblad";
-    userEmail = "srenblad@m-labs.hk";
+    settings.user = {
+      name = "Simon Renblad";
+      email = "srenblad@m-labs.hk";
+    };
   };
 }

@@ -36,9 +36,10 @@
       ledger
       leetcode-cli
       libqalculate
-      llvmPackages_14.clang-unwrapped
+      llvmPackages_20.clang-unwrapped
       lsof
       lua
+      mattermost-desktop
       mtr
       ncurses
       nil
@@ -57,7 +58,6 @@
       ]))
       qemu
       qownnotes
-      river
       ruff
       rust-analyzer
       rustc
@@ -72,7 +72,7 @@
       tree
       tt
       units
-      verilog
+      iverilog
       w3m
       wl-clipboard
       whois
