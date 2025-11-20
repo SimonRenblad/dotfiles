@@ -9,7 +9,7 @@
         select = "underline";
       };
       editor.lsp.display-messages = true;
-      editor.lsp.display-inlay-hints = true;
+      editor.lsp.display-inlay-hints = false;
       editor.line-number = "relative";
       editor.auto-pairs = false;
       keys.normal = {
