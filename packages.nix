@@ -17,6 +17,7 @@
       digital
       dmenu
       dos2unix
+      ed
       elixir
       elixir-ls
       erlang
