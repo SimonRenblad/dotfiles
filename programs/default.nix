@@ -7,5 +7,6 @@
     ./helix.nix
     ./git.nix
     ./lazygit.nix
+    ./nixvim.nix
   ];
 }
