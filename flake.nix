@@ -54,6 +54,7 @@
         modules = [
           ./home.nix
           ./packages.nix
+          inputs.nixvim.homeModules.nixvim
         ];
         extraSpecialArgs = {
           inherit inputs;

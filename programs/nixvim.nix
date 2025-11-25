@@ -19,6 +19,101 @@
         options.silent = true;
         action = "<cmd>LspStart<CR>";
       }
+      {
+        key = ";";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+        action = "<Right>";
+      }
+      {
+        key = "l";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+        action = "gk";
+      }
+      {
+        key = "k";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+        action = "gj";
+      }
+      {
+        key = "j";
+        options = {
+          silent = true;
+          noremap = true;
+        };
+        action = "<Left>";
+      }
+      {
+        key = "<C-w>k";
+        options = {
+          noremap = true;
+        };
+        action = "<C-w>j";
+      }
+      {
+        key = "<C-w><C-k>";
+        options = {
+          noremap = true;
+        };
+        action = "<C-w>j";
+      }
+      {
+        key = "<C-w>l";
+        options = {
+          noremap = true;
+        };
+        action = "<C-w>k";
+      }
+      {
+        key = "<C-w><C-l>";
+        options = {
+          noremap = true;
+        };
+        action = "<C-w>k";
+      }
+      {
+        key = "<C-w>j";
+        options = {
+          noremap = true;
+        };
+        action = "<C-w>h";
+      }
+      {
+        key = "<C-w><C-j>";
+        options = {
+          noremap = true;
+        };
+        action = "<C-w>h";
+      }
+      {
+        key = "<C-w>;";
+        options = {
+          noremap = true;
+        };
+        action = "<C-w>l";
+      }
+      {
+        key = "<C-w><C-semicolon>";
+        options = {
+          noremap = true;
+        };
+        action = "<C-w>l";
+      }
+      {
+        key = "'";
+        options = {
+          noremap = true;
+        };
+        action = ";";
+      }
     ];
     opts = {
       hlsearch = false;
@@ -43,6 +138,7 @@
       shiftwidth = 2;
     };
     plugins = {
+      web-devicons.enable = true;
       # TODO: add oil
       bufferline = {
         enable = true;
@@ -72,16 +168,15 @@
         enable = true;
         nixvimInjections = true;
         folding = false;
-        indent = true;
       };
       telescope = {
         enable = true;
         keymaps = {
-          "<leader>sf" = "find_files";
-          "<leader>fg" = "live_grep";
-          "<leader> " = "buffers";
-          "<leader>fh" = "help_tags";
-          "<leader>fd" = "diagnostics";
+          "<leader>f" = "find_files";
+          "<leader>/" = "live_grep";
+          "<leader>b" = "buffers";
+          "<leader>h" = "help_tags";
+          "<leader>d" = "diagnostics";
           "<C-p>" = "git_files";
           "<leader>p" = "oldfiles";
           "<C-f>" = "live_grep";
@@ -123,11 +218,7 @@
         };
         servers = {
           clangd.enable = true;
-          lua-ls.enable = true;
-          texlab.enable = true;
-          zls.enable = true;
-          nil-ls.enable = true;
-          ruff-lsp.enable = true;
+          nil_ls.enable = true;
           pylsp = {
             enable = true;
             settings = {
@@ -136,7 +227,7 @@
               };
             };
           };
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             installRustc = true;
             installCargo = true;
