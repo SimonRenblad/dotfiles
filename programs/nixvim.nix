@@ -167,7 +167,7 @@
       treesitter = {
         enable = true;
         nixvimInjections = true;
-        folding = false;
+        folding.enable = false;
       };
       telescope = {
         enable = true;
