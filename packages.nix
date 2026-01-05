@@ -27,7 +27,6 @@
       ffmpeg
       fzf
       gcc
-      gforth
       glance
       ghidra
       graphviz
