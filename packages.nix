@@ -7,6 +7,7 @@
       anki
       anki-sync-server
       bc
+      binwalk
       bottom
       calibre
       cargo
