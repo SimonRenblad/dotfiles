@@ -52,60 +52,36 @@
         action = "<Left>";
       }
       {
-        key = "<C-w>k";
+        mode = "n";
+        key = "^Wk";
         options = {
           noremap = true;
         };
-        action = "<C-w>j";
+        action = ":wincmd j<CR>";
       }
       {
-        key = "<C-w><C-k>";
+        mode = "n";
+        key = "^Wl";
         options = {
           noremap = true;
         };
-        action = "<C-w>j";
+        action = ":wincmd k<CR>";
       }
       {
-        key = "<C-w>l";
+        mode = "n";
+        key = "^Wj";
         options = {
           noremap = true;
         };
-        action = "<C-w>k";
+        action = ":wincmd h<CR>";
       }
       {
-        key = "<C-w><C-l>";
+        mode = "n";
+        key = "^W;";
         options = {
           noremap = true;
         };
-        action = "<C-w>k";
-      }
-      {
-        key = "<C-w>j";
-        options = {
-          noremap = true;
-        };
-        action = "<C-w>h";
-      }
-      {
-        key = "<C-w><C-j>";
-        options = {
-          noremap = true;
-        };
-        action = "<C-w>h";
-      }
-      {
-        key = "<C-w>;";
-        options = {
-          noremap = true;
-        };
-        action = "<C-w>l";
-      }
-      {
-        key = "<C-w><C-semicolon>";
-        options = {
-          noremap = true;
-        };
-        action = "<C-w>l";
+        action = ":wincmd l<CR>";
       }
       {
         key = "'";
