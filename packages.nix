@@ -59,6 +59,7 @@
       ]))
       qemu
       qownnotes
+      qutebrowser
       ruff
       rust-analyzer
       rustc
