@@ -28,7 +28,7 @@
       fzf
       gcc
       glance
-      ghidra
+      (ghidra.withExtensions(p: [ ghidra-extensions.kaiju ]))
       graphviz
       hecate
       helix
