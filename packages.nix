@@ -25,6 +25,8 @@
       expect
       fastfetch
       ffmpeg
+      filezilla
+      inetutils
       fzf
       gcc
       glance
@@ -32,6 +34,7 @@
       graphviz
       hecate
       helix
+      karere
       kitty
       lazygit
       ledger
