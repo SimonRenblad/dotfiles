@@ -1,7 +1,7 @@
 {pkgs, ... }: {
   programs.tmux = {
     enable = true;
-    prefix = "C-q";
+    prefix = "M-Space";
     mouse = false;
     escapeTime = 0;
     shell = "${pkgs.bash}/bin/bash";
