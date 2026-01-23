@@ -8,5 +8,6 @@
     ./git.nix
     ./lazygit.nix
     ./nixvim.nix
+    ./emacs.nix
   ];
 }
