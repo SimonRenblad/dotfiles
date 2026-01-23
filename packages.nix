@@ -16,6 +16,7 @@
       cutter
       difftastic
       digital
+      discordo
       dmenu
       dos2unix
       ed
@@ -47,7 +48,7 @@
       mtr
       ncurses
       nil
-      nixfmt-rfc-style
+      nixfmt
       nixd
       nmap
       parallel
@@ -69,9 +70,11 @@
       rustfmt
       slides
       starship
+      stlink
       sway
       tclPackages.tk
       texlab
+      tg
       tmux
       traceroute
       tree
