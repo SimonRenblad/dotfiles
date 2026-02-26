@@ -3,15 +3,17 @@
     enable = true;
     settings = {
       theme = "autumn_night_transparent";
-      editor.cursor-shape = {
-        normal = "block";
-        insert = "bar";
-        select = "underline";
+      editor = {
+        file-picker.git-ignore = false;
+        cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
+        lsp.display-messages = true;
+        lsp.display-inlay-hints = false;
+        line-number = "relative";
       };
-      editor.lsp.display-messages = true;
-      editor.lsp.display-inlay-hints = false;
-      editor.line-number = "relative";
-      editor.auto-pairs = false;
       keys.normal = {
         "j" = "move_char_left";
         "k" = "move_visual_line_down";
@@ -56,6 +58,7 @@
         {
           name = "rust";
           auto-format = false;
+          diagnostic-severity = "error";
           formatter = {
             command = "rustfmt";
           };
