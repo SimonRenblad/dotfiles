@@ -30,6 +30,7 @@
       inetutils
       fzf
       gcc
+      ghostty
       glance
       (ghidra.withExtensions(p: [ ghidra-extensions.kaiju ]))
       graphviz
